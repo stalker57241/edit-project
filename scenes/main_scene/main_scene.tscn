@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://m7je3w2tokkh"]
+[gd_scene load_steps=18 format=3 uid="uid://m7je3w2tokkh"]
 
 [ext_resource type="Script" path="res://scenes/main_scene/main_scene.gd" id="1_5oc6w"]
+[ext_resource type="CodeHighlighter" uid="uid://dmdi2fpi4xya4" path="res://assets/python_highlighter.tres" id="2_dybmr"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_ylh8r"]
 action = &"new_sc"
@@ -50,6 +51,9 @@ pressed = true
 
 [sub_resource type="Shortcut" id="Shortcut_pnuyp"]
 events = [SubResource("InputEventAction_j26ha")]
+
+[sub_resource type="SystemFont" id="SystemFont_8ub0v"]
+font_names = PackedStringArray("Ubuntu Mono", "Monospace")
 
 [node name="MainScene" type="VBoxContainer"]
 anchors_preset = 15
@@ -120,6 +124,12 @@ popup/item_0/id = 0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = SubResource("SystemFont_8ub0v")
+placeholder_text = "
+>> Enter some text for beginning"
+virtual_keyboard_enabled = false
+highlight_current_line = true
+syntax_highlighter = ExtResource("2_dybmr")
 scroll_smooth = true
 minimap_draw = true
 caret_type = 1
