@@ -147,4 +147,17 @@ layout_mode = 2
 text = "0/0"
 vertical_alignment = 1
 
+[node name="OpenFile" type="FileDialog" parent="."]
+title = "Open a File"
+size = Vector2i(400, 300)
+ok_button_text = "Открыть"
+file_mode = 0
+access = 2
+
+[node name="SaveFile" type="FileDialog" parent="."]
+size = Vector2i(467, 300)
+access = 2
+
 [connection signal="caret_changed" from="Edit" to="." method="_on_edit_caret_changed"]
+[connection signal="file_selected" from="OpenFile" to="." method="_on_open_file_file_selected"]
+[connection signal="file_selected" from="SaveFile" to="." method="_on_save_file_file_selected"]

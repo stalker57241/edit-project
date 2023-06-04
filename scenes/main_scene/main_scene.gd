@@ -1,6 +1,19 @@
 extends VBoxContainer
 
 
+var current_file: String:
+	set(value):
+		current_file = value
+		if value != "":
+			get_tree().root.title = "EditProject [{filename}]".format({
+				"filename": current_file.get_file()
+			})
+			%Edit.placeholder_text = ""
+		else:
+			get_tree().root.title = "EditProject"
+			%Edit.placeholder_text = "
+>> Enter some text for beginning"
+
 enum FileBtnMenu {
 	NEW = 0,
 	OPEN = 1,
@@ -26,8 +39,10 @@ enum HelpBtnMenu {
 @export var undo_shortcut: Shortcut
 @export var redo_shortcut: Shortcut
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	# TODO: Write cmdargs reading for open last arg file
+
+
 	var file_btn_popup: PopupMenu = %FileBtn.get_popup()
 	var edit_btn_popup: PopupMenu = %EditBtn.get_popup()
 	var help_btn_popup: PopupMenu = %HelpBtn.get_popup()
@@ -49,13 +64,17 @@ func _ready():
 func file_btn_popup_id_pressed(id: int) -> void:
 	match id:
 		FileBtnMenu.NEW:
+			current_file = ""
 			%Edit.text = ""
 		FileBtnMenu.OPEN:
-			pass
+			$OpenFile.popup_centered()
 		FileBtnMenu.SAVE:
-			pass
+			if current_file == "":
+				$SaveFile.popup_centered()
+			else:
+				save_file()
 		FileBtnMenu.SAVE_AS:
-			pass
+			$SaveFile.popup_centered()
 		FileBtnMenu.EXIT:
 			get_tree().quit(0)
 
@@ -84,3 +103,28 @@ func _on_edit_caret_changed():
 			"column": column
 		}
 	)
+
+
+func _on_open_file_file_selected(path: String):
+	current_file = path
+	get_tree().root.title = "EditProject [{filename}]".format({
+		"filename": current_file.get_file()
+	})
+	open_file()
+
+func open_file():
+	var fa: FileAccess = FileAccess.open(current_file, FileAccess.READ)
+	
+	%Edit.text = fa.get_as_text()
+
+	fa.close()
+
+func save_file():
+	var fa: FileAccess = FileAccess.open(current_file, FileAccess.WRITE)
+	fa.store_string(%Edit.text)
+	fa.close()
+
+
+func _on_save_file_file_selected(path: String):
+	current_file = path
+	save_file()
