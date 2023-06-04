@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://m7je3w2tokkh"]
+[gd_scene load_steps=2 format=3 uid="uid://m7je3w2tokkh"]
+
+[ext_resource type="Script" path="res://scenes/main_scene/main_scene.gd" id="1_5oc6w"]
 
 [node name="MainScene" type="VBoxContainer"]
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
+script = ExtResource("1_5oc6w")
 
 [node name="MenuBar" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -72,5 +75,7 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "10000/10000"
+text = "0/0"
 vertical_alignment = 1
+
+[connection signal="caret_changed" from="Edit" to="." method="_on_edit_caret_changed"]
