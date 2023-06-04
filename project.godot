@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.0", "Forward Plus")
 run/low_processor_mode=true
 config/icon="res://icon.svg"
 
+[editor]
+
+run/main_run_args="temp.txt"
+
 [filesystem]
 
 import/blender/enabled=false

@@ -41,7 +41,13 @@ enum HelpBtnMenu {
 
 func _ready():
 	# TODO: Write cmdargs reading for open last arg file
+	var args = OS.get_cmdline_user_args()
 
+	if args.size() > 0:
+		var fname = args[args.size() - 1]
+
+		current_file = fname
+		open_file()
 
 	var file_btn_popup: PopupMenu = %FileBtn.get_popup()
 	var edit_btn_popup: PopupMenu = %EditBtn.get_popup()
