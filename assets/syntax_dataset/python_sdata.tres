@@ -1,6 +1,34 @@
-[gd_resource type="CodeHighlighter" format=3 uid="uid://dmdi2fpi4xya4"]
+[gd_resource type="Resource" script_class="Syntax" load_steps=9 format=3 uid="uid://e21p7h0bjxmm"]
 
-[resource]
+[ext_resource type="Script" path="res://scripts/resources/double_sided_char_pairs.gd" id="1_jaa6t"]
+[ext_resource type="Script" path="res://scripts/resources/syntax_data.gd" id="1_lthmv"]
+
+[sub_resource type="Resource" id="Resource_ju4sk"]
+script = ExtResource("1_jaa6t")
+left_side = "("
+right_side = ")"
+
+[sub_resource type="Resource" id="Resource_0pais"]
+script = ExtResource("1_jaa6t")
+left_side = "["
+right_side = "]"
+
+[sub_resource type="Resource" id="Resource_vfoqa"]
+script = ExtResource("1_jaa6t")
+left_side = "{"
+right_side = "}"
+
+[sub_resource type="Resource" id="Resource_6sg5d"]
+script = ExtResource("1_jaa6t")
+left_side = "'"
+right_side = "'"
+
+[sub_resource type="Resource" id="Resource_6h1u0"]
+script = ExtResource("1_jaa6t")
+left_side = "\""
+right_side = "\""
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_crey3"]
 number_color = Color(0.682353, 0.505882, 1, 1)
 symbol_color = Color(0.992157, 1, 1, 1)
 function_color = Color(0.65098, 0.886275, 0.180392, 1)
@@ -61,3 +89,12 @@ color_regions = {
 "\" \"": Color(0.992157, 0.592157, 0.121569, 1),
 "' '": Color(0.992157, 0.592157, 0.121569, 1)
 }
+
+[resource]
+script = ExtResource("1_lthmv")
+delimiters = "
+	\\/.,*+-="
+highlighter = SubResource("CodeHighlighter_crey3")
+single_line_comment_char = "#"
+keywords = Array[StringName]([&"False", &"None", &"NoneType", &"True", &"and", &"as", &"assert", &"async", &"await", &"bool", &"break", &"bytearray", &"bytes", &"class", &"complex", &"continue", &"def", &"del", &"dict", &"elif", &"else", &"except", &"finally", &"float", &"for", &"from", &"frozenset", &"global", &"if", &"import", &"in", &"int", &"is", &"lambda", &"list", &"memoryview", &"nonlocal", &"not", &"or", &"pass", &"raise", &"range", &"return", &"set", &"str", &"try", &"tuple", &"while", &"with", &"yield"])
+doublesided_characters = Array[Object]([SubResource("Resource_ju4sk"), SubResource("Resource_0pais"), SubResource("Resource_vfoqa"), SubResource("Resource_6sg5d"), SubResource("Resource_6h1u0")])
