@@ -171,8 +171,8 @@ func _on_edit_caret_changed():
 	var row = %Edit.get_caret_line(0)
 	var column = %Edit.get_caret_column(0)
 	%CursorPositionText.text = "{row}/{column}".format({
-		"row": row,
-		"column": column
+		"row": row + 1,
+		"column": column + 1
 	})
 
 

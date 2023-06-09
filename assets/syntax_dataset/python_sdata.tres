@@ -97,4 +97,4 @@ delimiters = "
 highlighter = SubResource("CodeHighlighter_crey3")
 single_line_comment_char = "#"
 keywords = Array[StringName]([&"False", &"None", &"NoneType", &"True", &"and", &"as", &"assert", &"async", &"await", &"bool", &"break", &"bytearray", &"bytes", &"class", &"complex", &"continue", &"def", &"del", &"dict", &"elif", &"else", &"except", &"finally", &"float", &"for", &"from", &"frozenset", &"global", &"if", &"import", &"in", &"int", &"is", &"lambda", &"list", &"memoryview", &"nonlocal", &"not", &"or", &"pass", &"raise", &"range", &"return", &"set", &"str", &"try", &"tuple", &"while", &"with", &"yield"])
-doublesided_characters = Array[Object]([SubResource("Resource_ju4sk"), SubResource("Resource_0pais"), SubResource("Resource_vfoqa"), SubResource("Resource_6sg5d"), SubResource("Resource_6h1u0")])
+doublesided_characters = Array[ExtResource("1_jaa6t")]([SubResource("Resource_ju4sk"), SubResource("Resource_0pais"), SubResource("Resource_vfoqa"), SubResource("Resource_6sg5d"), SubResource("Resource_6h1u0")])
